@@ -10,7 +10,15 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-
+Route::resource('posts', 'Posts\PostsController');
 Route::get('/', function () {
     return view('welcome');
 });
+
+/**
+*Auth Routes
+*/
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
