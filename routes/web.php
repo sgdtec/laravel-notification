@@ -11,6 +11,8 @@
 |
 */
 Route::resource('posts', 'Posts\PostsController');
+Route::post('comment', 'Posts\CommentController@store')->name('comment.store');
+
 Route::get('/', function () {
     return view('welcome');
 });

@@ -17,7 +17,11 @@
                 @foreach($posts as $post)
                     <tr>
                     <th class="text-center">{{$post->id}}</th>
-                    <td>{{$post->title}}</td>
+                    <td>
+                        <a href="{{ route('posts.show', $post->id)}}">
+                            {{$post->title}} - ({{$post->comments->count()}})
+                        </a>                           
+                    </td>
                     <td>{{$post->content}}</td>
                     <td>
                         <a href="#" class="btn btn-info btn-sm">Editar</a>
