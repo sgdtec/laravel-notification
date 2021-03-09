@@ -1,17 +1,16 @@
 <?php
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
+Broadcast::routes();
+
+use App\Http\Controllers\NotificationController;
+
+
 Route::resource('posts', 'Posts\PostsController');
 Route::post('comment', 'Posts\CommentController@store')->name('comment.store');
+
+Route::get('notifications', [NotificationController::class, 'notifications'])->name('notifications');
+Route::put('notification-read', [NotificationController::class, 'markAsRead']);
+Route::put('notification-all-read', [NotificationController::class, 'markAllAsRead']);
 
 Route::get('/', function () {
     return view('welcome');
