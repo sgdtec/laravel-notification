@@ -77,7 +77,7 @@ class PostCommented extends Notification implements ShouldQueue
             'read_at' => null,
             'data'    => [
                 'comment' => $this->comment->load('user')
-            ]
+            ],
         ]);
     }
 }
